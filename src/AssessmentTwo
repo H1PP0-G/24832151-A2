@@ -1,0 +1,100 @@
+/**
+ * AssignmentTwo - Main class for the Park Rides Visitor Management System (PRVMS)
+ * This class demonstrates all functionality of the theme park management system.
+ * 
+ * @author 24832151
+ * @version 1.0
+ */
+public class AssignmentTwo {
+    
+    public static void main(String[] args) {
+        AssignmentTwo assignment = new AssignmentTwo();
+        
+        System.out.println("======================================");
+        System.out.println("PARK RIDES VISITOR MANAGEMENT SYSTEM");
+        System.out.println("======================================\n");
+        
+        // Uncomment the methods below to run each part demonstration
+        System.out.println("\n===== PART 3: WAITING LINE DEMONSTRATION =====");
+        assignment.partThree();
+        
+        System.out.println("\n===== PART 4A: RIDE HISTORY DEMONSTRATION =====");
+        assignment.partFourA();
+        
+        System.out.println("\n===== PART 4B: SORTING RIDE HISTORY DEMONSTRATION =====");
+        assignment.partFourB();
+        
+        System.out.println("\n===== PART 5: RUN ONE CYCLE DEMONSTRATION =====");
+        assignment.partFive();
+        
+        System.out.println("\n===== PART 6: EXPORT TO FILE DEMONSTRATION =====");
+        assignment.partSix();
+        
+        System.out.println("\n===== PART 7: IMPORT FROM FILE DEMONSTRATION =====");
+        assignment.partSeven();
+    }
+    
+    /**
+     * Part 3: Demonstrates queue (waiting line) functionality
+     */
+    public void partThree() {
+        // Create a new ride with operator
+        Employee operator = new Employee("John Smith", 30, "555-0101", "EMP001", "Ride Operator");
+        Ride ride = new Ride("Roller Coaster", 4, operator);
+        
+        System.out.println("Creating visitors and adding them to the waiting line...\n");
+        
+        // Create and add at least 5 visitors to the queue
+        Visitor v1 = new Visitor("Alice Johnson", 25, "555-1001", "VIP", "2024-11-05");
+        Visitor v2 = new Visitor("Bob Williams", 30, "555-1002", "Standard", "2024-11-05");
+        Visitor v3 = new Visitor("Charlie Brown", 22, "555-1003", "Standard", "2024-11-05");
+        Visitor v4 = new Visitor("Diana Martinez", 28, "555-1004", "VIP", "2024-11-05");
+        Visitor v5 = new Visitor("Edward Davis", 35, "555-1005", "Standard", "2024-11-05");
+        
+        ride.addVisitorToQueue(v1);
+        ride.addVisitorToQueue(v2);
+        ride.addVisitorToQueue(v3);
+        ride.addVisitorToQueue(v4);
+        ride.addVisitorToQueue(v5);
+        
+        System.out.println("\nRemoving one visitor from the queue...\n");
+        ride.removeVisitorFromQueue();
+        
+        System.out.println("\nPrinting all visitors in the queue:");
+        ride.printQueue();
+    }
+    
+    /**
+     * Part 4A: Demonstrates ride history functionality with LinkedList and Iterator
+     */
+    public void partFourA() {
+        // Create a new ride
+        Employee operator = new Employee("Sarah Connor", 28, "555-0102", "EMP002", "Senior Operator");
+        Ride ride = new Ride("Thunderstorm", 6, operator);
+        
+        System.out.println("Adding visitors to ride history...\n");
+        
+        // Add at least 5 visitors to the collection
+        Visitor v1 = new Visitor("Frank Miller", 24, "555-2001", "Standard", "2024-11-05");
+        Visitor v2 = new Visitor("Grace Lee", 27, "555-2002", "VIP", "2024-11-05");
+        Visitor v3 = new Visitor("Henry Wilson", 31, "555-2003", "Standard", "2024-11-05");
+        Visitor v4 = new Visitor("Iris Taylor", 29, "555-2004", "VIP", "2024-11-05");
+        Visitor v5 = new Visitor("Jack Anderson", 26, "555-2005", "Standard", "2024-11-05");
+        
+        ride.addVisitorToHistory(v1);
+        ride.addVisitorToHistory(v2);
+        ride.addVisitorToHistory(v3);
+        ride.addVisitorToHistory(v4);
+        ride.addVisitorToHistory(v5);
+        
+        System.out.println("\nChecking if a visitor is in the collection...\n");
+        ride.checkVisitorFromHistory(v3);
+        
+        Visitor notInHistory = new Visitor("Unknown Person", 40, "555-9999", "Standard", "2024-11-05");
+        ride.checkVisitorFromHistory(notInHistory);
+        
+        System.out.println("\nNumber of visitors in the collection: " + ride.numberOfVisitors());
+        
+        System.out.println("\nPrinting all visitors in the collection:");
+        ride.printRideHistory();
+    }
