@@ -176,9 +176,6 @@ All parts have been tested with comprehensive demonstrations:
 - Enhanced visitor statistics
 - Database integration
 
-## Academic Integrity Declaration
-I acknowledge that I have not knowingly used GenAI to complete this assessment.
-
 ## Author
 Student ID: 24832151
 Course: PROG2004 Object Oriented Programming
